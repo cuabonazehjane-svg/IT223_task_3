@@ -1,4 +1,3 @@
-
 <?php
 $servername = "localhost";
 $username = "root";
@@ -10,10 +9,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$query = "SELECT CURRENTDATE() AS result";
+$query = "SELECT CURDATE() AS result";
 $result = $conn->query($query);
 
-echo "<h1>CURRENTDATE Output</h1>";
+echo "<h1>CURDATE Output</h1>";
 if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "Result: " . $row["result"] . "<br>";
