@@ -9,10 +9,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$query = "SELECT ADDDATE(hire_date, INTERVAL 1 DAY) AS result FROM employees LIMIT 1";
+$query = "SELECT ADDTIME(NOW(), '01:00:00') AS result";
 $result = $conn->query($query);
 
-echo "<h1>ADDDATE Output</h1>";
+echo "<h1>ADDTIME Output</h1>";
 if ($result && $result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "Result: " . $row["result"] . "<br>";
